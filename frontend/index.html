@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeFix Agent</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <div class="brand">⚡ CODEFIX AGENT</div>
+    <div class="subtitle">Autonomous AI Coding Debugger</div>
+  </div>
+  <div class="online"><span></span> AI SYSTEM ONLINE</div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div>
+      <p class="eyebrow">AGENTIC DEBUGGING PLATFORM</p>
+      <h1>Analyze → Fix → Execute → Observe → Retry → Verify</h1>
+      <p>Debug Python, C++ and Java with an execution-aware agent loop.</p>
+    </div>
+    <div class="hero-badge">🐍 Python &nbsp; ⚙️ C++ &nbsp; ☕ Java</div>
+  </section>
+
+  <section class="grid2">
+    <div class="card">
+      <div class="card-title">01 · LANGUAGE</div>
+      <div class="languages">
+        <button class="lang active" data-lang="python">🐍<b>Python</b></button>
+        <button class="lang" data-lang="cpp">⚙️<b>C++</b></button>
+        <button class="lang" data-lang="java">☕<b>Java</b></button>
+      </div>
+      <label>Your Code</label>
+      <textarea id="code" spellcheck="false"></textarea>
+      <label>Error / Problem</label>
+      <textarea id="error" class="small" placeholder="Paste the error message or describe the problem..."></textarea>
+      <button id="debugBtn" class="primary">⚡ DEBUG CODE</button>
+    </div>
+
+    <div class="card">
+      <div class="card-title">02 · AGENT STATUS</div>
+      <div id="statusList" class="timeline">
+        <div>◯ Code received</div>
+        <div>◯ Root cause analysis</div>
+        <div>◯ Fix generation</div>
+        <div>◯ Code execution</div>
+        <div>◯ Result evaluation</div>
+        <div>◯ Verification</div>
+      </div>
+      <div class="metric-row">
+        <div><span>Cycles</span><strong id="cycles">0</strong></div>
+        <div><span>Status</span><strong id="resultStatus">READY</strong></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid2">
+    <div class="card">
+      <div class="card-title">03 · DEBUG ANALYSIS</div>
+      <div class="analysis">
+        <div><span>Type</span><b id="errorType">—</b></div>
+        <div><span>Line</span><b id="errorLine">—</b></div>
+        <div><span>Root Cause</span><b id="rootCause">Run the agent to analyze your code.</b></div>
+      </div>
+      <h3>Explanation</h3>
+      <p id="explanation">—</p>
+    </div>
+    <div class="card">
+      <div class="card-title">04 · EXECUTION RESULT</div>
+      <div id="execution" class="terminal">Waiting for execution...</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-title">05 · CORRECTED CODE</div>
+    <pre id="fixedCode" class="codebox">// Corrected code will appear here.</pre>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">06 · CODEBASE HEALTH</div>
+        <p class="muted">Upload a ZIP containing Python, C++ and/or Java files.</p>
+      </div>
+      <label class="upload">
+        📦 SCAN ZIP
+        <input id="zipInput" type="file" accept=".zip">
+      </label>
+    </div>
+    <div class="health-grid">
+      <div><span>Files Scanned</span><b id="files">0</b></div>
+      <div><span>Lines Scanned</span><b id="lines">0</b></div>
+      <div><span>Errors Found</span><b id="errors">0</b></div>
+      <div><span>Errors Fixed</span><b id="fixed">0</b></div>
+      <div><span>Remaining</span><b id="remaining">0</b></div>
+      <div><span>Debug Cycles</span><b id="healthCycles">0</b></div>
+      <div><span>Tests Passed</span><b id="tests">0 / 0</b></div>
+      <div><span>Overall</span><b id="overall">READY</b></div>
+    </div>
+    <div id="scanFiles" class="file-list"></div>
+  </section>
+
+  <section class="card">
+    <div class="card-head">
+      <div>
+        <div class="card-title">07 · DEBUG HISTORY</div>
+        <p class="muted">Saved locally in SQLite.</p>
+      </div>
+      <button id="refreshHistory" class="secondary">Refresh</button>
+    </div>
+    <div id="history" class="history"></div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
